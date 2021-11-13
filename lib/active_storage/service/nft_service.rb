@@ -1,5 +1,9 @@
 require 'nft/client'
 
+class ActiveStorage::Blob
+  validates :key, uniqueness: true
+end
+
 module ActiveStorage
   class Service::NftService < Service
     attr_accessor :client
@@ -14,8 +18,7 @@ module ActiveStorage
     def upload(key, io, checksum: nil, **)
       instrument :upload, key: key, checksum: checksum do
         cid_key = @client.add io.path
-
-        Blob.find_by_key(key).update key: cid_key
+        Blob.find_by_key(key).update! key: cid_key
       end
     end
 
