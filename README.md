@@ -1,9 +1,10 @@
 # Activestorage::Nft
 
-This gem extends the ActiveStorage::Service with an implementation for
-[NFT.storage](https://nft.storage).
+ActiveStorage adapter for [NFT.storage](https://nft.storage).
 
-We use [gateway.pinata.cloud](https://pinata.cloud) as IPFS gateway, because NFT.storage automatically pins all uploads to the pinata.cloud pinning service.
+Uploaded files are automatically pinned on the pinata.cloud IPFS pinning service, courtesey of [Protocol Labs](https://protocol.ai).
+
+Please note: This adapter adds a `unique` validation on ActiveRecord::Blob and will raise a validation error when trying to upload a file that already exists.
 
 ## Installation
 
