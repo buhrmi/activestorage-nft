@@ -1,0 +1,5 @@
+module ActiveStorage
+  module NftService
+    VERSION = '0.0.2'.freeze
+  end
+end
