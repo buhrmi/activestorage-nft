@@ -18,7 +18,9 @@ module ActiveStorage
     def upload(key, io, checksum: nil, **)
       instrument :upload, key: key, checksum: checksum do
         cid_key = @client.add io.path
-        Blob.find_by_key(key).update! key: cid_key
+        blob = Blob.find_by_key(key)
+        blob.key = cid_key
+        blob.save!
       end
     end
 
