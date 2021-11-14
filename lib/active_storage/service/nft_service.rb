@@ -36,6 +36,14 @@ module ActiveStorage
       end
     end
 
+    def delete_prefixed(key)
+      # haha, no
+    end
+
+    def delete(key)
+      # nope
+    end
+
     def url(key, content_type: nil, filename: nil, expires_in: nil, disposition: nil)
       instrument :url, key: key do
         @client.build_file_url key, filename.to_s

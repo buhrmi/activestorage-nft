@@ -40,6 +40,10 @@ module Nft
       end
     end
 
+    def delete(key)
+      # haha, no.
+    end
+
     def file_exists?(cid)
       res = @http_client.auth("Bearer #{@api_key}").get(
         "https://api.nft.storage/check/#{cid}"
