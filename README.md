@@ -4,7 +4,9 @@ ActiveStorage adapter for [NFT.storage](https://nft.storage).
 
 Uploaded files are automatically pinned on the pinata.cloud IPFS pinning service, courtesey of [Protocol Labs](https://protocol.ai).
 
-Please note: This adapter adds a `unique` validation on ActiveRecord::Blob and will raise a validation error when trying to upload a file that already exists.
+## Note on uniqueness
+
+When uploading a file that already exists (same content hash), an `ActiveRecord::RecordNotUnique` exception will be raised.
 
 ## Installation
 
