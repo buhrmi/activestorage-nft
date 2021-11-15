@@ -2,7 +2,7 @@
 
 ActiveStorage adapter for [NFT.storage](https://nft.storage).
 
-Uploaded files are automatically pinned, courtesy of [Protocol Labs](https://protocol.ai).
+Uploaded files are automatically pinned on the pinata.cloud IPFS pinning service, courtesy of [Protocol Labs](https://protocol.ai).
 
 ## Note on uniqueness
 
