@@ -7,7 +7,7 @@ module ActiveStorage
 end
 
 class Model
-    def update(params)
+    def update!(params)
     end
 end
 

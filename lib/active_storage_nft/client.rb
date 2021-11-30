@@ -3,7 +3,7 @@
 require 'http'
 require 'json'
 
-module Nft
+module ActiveStorageNft
   class Error < StandardError; end
   class NotFoundError < Error; end
 
