@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     activestorage-nft (0.0.6)
-      http (~> 4.3)
+      http
 
 GEM
   remote: https://rubygems.org/

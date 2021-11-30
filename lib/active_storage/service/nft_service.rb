@@ -1,11 +1,11 @@
-require 'nft/client'
+require 'active_storage_nft/client'
 
 module ActiveStorage
   class Service::NftService < Service
     attr_accessor :client
 
     def initialize(api_key:, gateway_endpoint:)
-      @client = Nft::Client.new api_key, gateway_endpoint
+      @client = ActiveStorageNft::Client.new api_key, gateway_endpoint
     end
 
     # File is uploaded to NFT.storage and a hash
@@ -14,7 +14,7 @@ module ActiveStorage
     def upload(key, io, checksum: nil, **)
       instrument :upload, key: key, checksum: checksum do
         cid_key = @client.add io.path
-        blob = Blob.find_by_key(key).update!(key: cid_key)
+        Blob.find_by_key(key).update!(key: cid_key)
       end
     end
 

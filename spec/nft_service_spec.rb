@@ -24,7 +24,7 @@ RSpec.describe ActiveStorage::Service::NftService do
 
   describe '#upload' do
     it 'calls the add method on client with given args' do
-      client = instance_double('Nft::Client')
+      client = instance_double('ActiveStorage::Nft::Client')
       allow(client)
         .to receive(:add).and_return({ 'hash' => 'some-key' })
       
@@ -48,7 +48,7 @@ RSpec.describe ActiveStorage::Service::NftService do
 
   describe '#exists' do
     it 'calls file_exists? method on client with given args' do
-      client = instance_double('Nft::Client')
+      client = instance_double('ActiveStorage::Nft::Client')
       allow(client)
         .to receive(:file_exists?).and_return(true)
 
@@ -72,7 +72,7 @@ RSpec.describe ActiveStorage::Service::NftService do
 
   describe '#download' do
     it 'calls download method with key' do
-      client = instance_double('Nft::Client')
+      client = instance_double('ActiveStorage::Nft::Client')
 
       subject.client = client
 
@@ -83,7 +83,7 @@ RSpec.describe ActiveStorage::Service::NftService do
     end
 
     it 'calls download method with key and block' do
-      client = instance_double('Nft::Client')
+      client = instance_double('ActiveStorage::Nft::Client')
       block = -> { 'some block' }
 
       subject.client = client
@@ -131,7 +131,7 @@ RSpec.describe ActiveStorage::Service::NftService do
 
   describe '#url' do
     it 'returns url for file at specified key' do
-      client = instance_double('Nft::Client')
+      client = instance_double('ActiveStorage::Nft::Client')
       allow(client)
         .to receive(:build_file_url).and_return("#{gateway_endpoint}/#{key}")
 
@@ -142,7 +142,7 @@ RSpec.describe ActiveStorage::Service::NftService do
     end
 
     it 'returns url for file at specified key and adds filename' do
-      client = instance_double('Nft::Client')
+      client = instance_double('ActiveStorage::Nft::Client')
       allow(client)
         .to receive(:build_file_url).and_return("#{gateway_endpoint}/#{key}?filename=#{filename}")
 
@@ -164,7 +164,7 @@ RSpec.describe ActiveStorage::Service::NftService do
 
   describe '#url_for_direct_upload' do
     it 'returns direct upload url for file' do
-      client = instance_double('Nft::Client')
+      client = instance_double('ActiveStorage::Nft::Client')
 
       # TODO
     end
